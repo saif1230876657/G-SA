@@ -38,22 +38,26 @@
     .subtitle { font-size: 1.3rem; margin-top: 25px; max-width: 700px; margin: 25px auto 0; line-height: 1.7; }
     .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
     .book-card { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; display: flex; flex-direction: column; }
+    .book-card.highlight { animation: highlight-anim 2.5s ease-in-out; }
+    @keyframes highlight-anim { 0% { box-shadow: 0 0 0 0 var(--active-color-transparent); } 40% { box-shadow: 0 0 0 8px var(--active-color-transparent); } 100% { box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); } }
     .book-cover { height: 180px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 20px; }
     .book-icon { font-size: 4.5rem; opacity: 0.8; transition: all 0.3s ease; }
     .book-card:hover .book-icon { transform: scale(1.1); opacity: 1; }
     .book-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; text-align: center; }
     .book-title { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; }
     .book-description { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; flex-grow: 1; }
-    .book-actions { margin-top: auto; padding-top: 15px; }
-    .btn-download { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; border: none; outline: none; text-decoration: none; color: white; }
+    .book-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 15px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; border: none; outline: none; text-decoration: none; }
+    .btn-download { flex-grow: 3; color: white; }
+    .btn-share { flex-grow: 1; background: #eee; }
     .btn-download:hover { transform: translateY(-4px); }
     .btn-download.disabled { background: #ccc !important; cursor: not-allowed; box-shadow: none !important; }
     .btn-download.disabled:hover { transform: translateY(0); }
     .book-sticker { position: absolute; top: 15px; left: 15px; color: white; padding: 6px 15px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; z-index: 2; }
 
-    body.theme-1st-year { background: #f8f9fa; color: #333; } .theme-1st-year h1 { color: var(--dark-blue); } .theme-1st-year h1:after { background: linear-gradient(90deg, #17a2b8, #20c997); } .theme-1st-year .subtitle { color: #555; } .theme-1st-year .book-card { background: #fff; border: 1px solid #e9ecef; } .theme-1st-year .book-card:hover { box-shadow: 0 20px 40px rgba(23, 162, 184, 0.2); } .theme-1st-year .book-cover { background: #f8f9fa; } .theme-1st-year .book-icon { color: #17a2b8; } .theme-1st-year .book-title { color: var(--dark-blue); } .theme-1st-year .book-description { color: #6c757d; } .theme-1st-year .btn-download { background: linear-gradient(135deg, #17a2b8, #20c997); box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3); } .theme-1st-year .btn-download:hover { box-shadow: 0 8px 25px rgba(23, 162, 184, 0.4); } .theme-1st-year .book-sticker { background: linear-gradient(45deg, #ffc107, #ff9800); } .theme-1st-year .footer-wave { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,224L48,229.3C96,235,192,245,288,218.7C384,192,480,128,576,128C672,128,768,192,864,229.3C960,267,1056,277,1152,256C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E"); } .theme-1st-year .footer-column.about .logo { text-shadow: 0 0 15px rgba(23, 162, 184, 0.6); }
-    body.theme-2nd-sci { background: #f4f7fc; color: #333; } .theme-2nd-sci h1 { color: var(--dark-blue); } .theme-2nd-sci h1:after { background: linear-gradient(90deg, #007bff, #00d4ff); } .theme-2nd-sci .subtitle { color: #555; } .theme-2nd-sci .book-card { background: #fff; border: 1px solid #eef2f9; } .theme-2nd-sci .book-card:hover { box-shadow: 0 20px 40px rgba(0, 123, 255, 0.2); } .theme-2nd-sci .book-cover { background: #f4f7fc; } .theme-2nd-sci .book-icon { color: #007bff; } .theme-2nd-sci .book-title { color: var(--dark-blue); } .theme-2nd-sci .book-description { color: #6c757d; } .theme-2nd-sci .btn-download { background: linear-gradient(135deg, #007bff, #00d4ff); box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); } .theme-2nd-sci .btn-download:hover { box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); } .theme-2nd-sci .sticker-base { background: linear-gradient(45deg, #6c757d, #343a40); } .theme-2nd-sci .sticker-spec { background: linear-gradient(45deg, #198754, #20c997); } .theme-2nd-sci .footer-wave { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f4f7fc' fill-opacity='1' d='M0,224L48,229.3C96,235,192,245,288,218.7C384,192,480,128,576,128C672,128,768,192,864,229.3C960,267,1056,277,1152,256C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E"); } .theme-2nd-sci .footer-column.about .logo { text-shadow: 0 0 15px rgba(0, 123, 255, 0.6); }
-    body.theme-2nd-lit { background: #fdfaf6; color: #333; } .theme-2nd-lit h1 { color: var(--dark-blue); } .theme-2nd-lit h1:after { background: linear-gradient(90deg, #A52A2A, #8B4513); } .theme-2nd-lit .subtitle { color: #555; } .theme-2nd-lit .book-card { background: #fff; border: 1px solid #eee; } .theme-2nd-lit .book-card:hover { box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2); } .theme-2nd-lit .book-cover { background: #fdfaf6; } .theme-2nd-lit .book-icon { color: #A52A2A; } .theme-2nd-lit .book-title { color: var(--dark-blue); } .theme-2nd-lit .book-description { color: #5a5a5a; } .theme-2nd-lit .btn-download { background: linear-gradient(135deg, #A52A2A, #8B4513); box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3); } .theme-2nd-lit .btn-download:hover { box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4); } .theme-2nd-lit .sticker-base { background: linear-gradient(45deg, #6c757d, #343a40); } .theme-2nd-lit .sticker-spec { background: linear-gradient(45deg, #4b636e, #263238); } .theme-2nd-lit .footer-wave { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23fdfaf6' fill-opacity='1' d='M0,224L48,229.3C96,235,192,245,288,218.7C384,192,480,128,576,128C672,128,768,192,864,229.3C960,267,1056,277,1152,256C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E"); } .theme-2nd-lit .footer-column.about .logo { text-shadow: 0 0 15px rgba(165, 42, 42, 0.6); }
+    body.theme-1st-year { --active-color: #17a2b8; --active-indicator: #20c997; --active-color-transparent: rgba(23, 162, 184, 0.3); background: #f8f9fa; color: #333; } .theme-1st-year h1 { color: var(--dark-blue); } .theme-1st-year h1:after { background: linear-gradient(90deg, #17a2b8, #20c997); } .theme-1st-year .subtitle { color: #555; } .theme-1st-year .book-card { background: #fff; border: 1px solid #e9ecef; } .theme-1st-year .book-card:hover { box-shadow: 0 20px 40px rgba(23, 162, 184, 0.2); } .theme-1st-year .book-cover { background: #f8f9fa; } .theme-1st-year .book-icon { color: #17a2b8; } .theme-1st-year .book-title { color: var(--dark-blue); } .theme-1st-year .book-description { color: #6c757d; } .theme-1st-year .btn-download { background: linear-gradient(135deg, #17a2b8, #20c997); box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3); } .theme-1st-year .btn-download:hover { box-shadow: 0 8px 25px rgba(23, 162, 184, 0.4); } .theme-1st-year .book-sticker { background: linear-gradient(45deg, #ffc107, #ff9800); } .theme-1st-year .footer-wave { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,224L48,229.3C96,235,192,245,288,218.7C384,192,480,128,576,128C672,128,768,192,864,229.3C960,267,1056,277,1152,256C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E"); } .theme-1st-year .footer-column.about .logo { text-shadow: 0 0 15px rgba(23, 162, 184, 0.6); }
+    body.theme-2nd-sci { --active-color: #007bff; --active-indicator: #00d4ff; --active-color-transparent: rgba(0, 123, 255, 0.3); background: #f4f7fc; color: #333; } .theme-2nd-sci h1 { color: var(--dark-blue); } .theme-2nd-sci h1:after { background: linear-gradient(90deg, #007bff, #00d4ff); } .theme-2nd-sci .subtitle { color: #555; } .theme-2nd-sci .book-card { background: #fff; border: 1px solid #eef2f9; } .theme-2nd-sci .book-card:hover { box-shadow: 0 20px 40px rgba(0, 123, 255, 0.2); } .theme-2nd-sci .book-cover { background: #f4f7fc; } .theme-2nd-sci .book-icon { color: #007bff; } .theme-2nd-sci .book-title { color: var(--dark-blue); } .theme-2nd-sci .book-description { color: #6c757d; } .theme-2nd-sci .btn-download { background: linear-gradient(135deg, #007bff, #00d4ff); box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); } .theme-2nd-sci .btn-download:hover { box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); } .theme-2nd-sci .sticker-base { background: linear-gradient(45deg, #6c757d, #343a40); } .theme-2nd-sci .sticker-spec { background: linear-gradient(45deg, #198754, #20c997); } .theme-2nd-sci .footer-wave { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f4f7fc' fill-opacity='1' d='M0,224L48,229.3C96,235,192,245,288,218.7C384,192,480,128,576,128C672,128,768,192,864,229.3C960,267,1056,277,1152,256C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E"); } .theme-2nd-sci .footer-column.about .logo { text-shadow: 0 0 15px rgba(0, 123, 255, 0.6); }
+    body.theme-2nd-lit { --active-color: #A52A2A; --active-indicator: #8B4513; --active-color-transparent: rgba(165, 42, 42, 0.3); background: #fdfaf6; color: #333; } .theme-2nd-lit h1 { color: var(--dark-blue); } .theme-2nd-lit h1:after { background: linear-gradient(90deg, #A52A2A, #8B4513); } .theme-2nd-lit .subtitle { color: #555; } .theme-2nd-lit .book-card { background: #fff; border: 1px solid #eee; } .theme-2nd-lit .book-card:hover { box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2); } .theme-2nd-lit .book-cover { background: #fdfaf6; } .theme-2nd-lit .book-icon { color: #A52A2A; } .theme-2nd-lit .book-title { color: var(--dark-blue); } .theme-2nd-lit .book-description { color: #5a5a5a; } .theme-2nd-lit .btn-download { background: linear-gradient(135deg, #A52A2A, #8B4513); box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3); } .theme-2nd-lit .btn-download:hover { box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4); } .theme-2nd-lit .sticker-base { background: linear-gradient(45deg, #6c757d, #343a40); } .theme-2nd-lit .sticker-spec { background: linear-gradient(45deg, #4b636e, #263238); } .theme-2nd-lit .footer-wave { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23fdfaf6' fill-opacity='1' d='M0,224L48,229.3C96,235,192,245,288,218.7C384,192,480,128,576,128C672,128,768,192,864,229.3C960,267,1056,277,1152,256C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E"); } .theme-2nd-lit .footer-column.about .logo { text-shadow: 0 0 15px rgba(165, 42, 42, 0.6); }
 
     .site-footer { position: relative; background-color: #1a2035; padding: 120px 0 0 0; color: rgba(255, 255, 255, 0.8); overflow: hidden; }
     .site-footer .footer-wave { position: absolute; top: -1px; left: 0; width: 100%; height: 100px; background-repeat: no-repeat; background-size: cover; }
@@ -66,6 +70,25 @@
     .nav-item:hover { transform: translateY(-3px); }
     .nav-item .icon { font-size: 1.5rem; color: #aaa; background: transparent; border-radius: 50%; width: 44px; height: 44px; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; }
     .nav-item.active .icon { color: #fff; background-color: var(--active-color, #000); transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .modal-overlay.visible { opacity: 1; pointer-events: auto; }
+    .modal-content { background: #fff; color: #333; width: 90%; max-width: 400px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); overflow: hidden; transform: scale(0.95); transition: transform 0.3s ease; }
+    .modal-overlay.visible .modal-content { transform: scale(1); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #f7f7f7; border-bottom: 1px solid #eee; }
+    .modal-title { font-weight: 700; font-size: 1.2rem; }
+    .modal-close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+    .modal-body { padding: 20px; text-align: center; }
+    .qr-code-container { margin-bottom: 15px; }
+    .qr-code-container img { max-width: 150px; border: 1px solid #eee; border-radius: 10px; }
+    .link-container { display: flex; margin-bottom: 15px; }
+    .link-container input { width: 100%; border: 1px solid #ddd; border-left: none; padding: 10px; background: #f9f9f9; border-radius: 0 8px 8px 0; }
+    .link-container button { border: 1px solid #ddd; background: #eee; padding: 0 15px; cursor: pointer; border-radius: 8px 0 0 8px; }
+    .social-share a { color: #fff; text-decoration: none; font-size: 1.5rem; margin: 0 10px; display: inline-block; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; }
+    .whatsapp { background: #25D366; } .telegram { background: #0088cc; } .facebook { background: #1877F2; } .twitter { background: #1DA1F2; }
+
+    #global-share-btn { position: fixed; top: 20px; left: 20px; z-index: 999; background: var(--active-color, #333); color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; transition: background-color 0.3s, transform 0.3s; }
+    #global-share-btn:hover { transform: scale(1.1); }
   </style>
 </head>
 <body class="theme-1st-year">
@@ -79,48 +102,73 @@
     <main>
       <section id="page-1st-year" class="page active">
         <div class="main-content"><div class="container"><header><h1><i class="fas fa-seedling"></i> كتب الصف الأول الثانوي</h1><p class="subtitle">بوابتك لبناء أساس علمي متين وقوي للمستقبل.</p></header><div class="books-grid">
-            <div class="book-card"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-font book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة العربية</h3><p class="book-description">مجموعة من النصوص والأدوات اللغوية التي تهدف إلى تعميق فهم الطالب للغة والأدب والبلاغة والنحو.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11196/11344" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-language book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة الإنجليزية</h3><p class="book-description">منهج لتطوير المهارات اللغوية الأربع: القراءة، الكتابة، الاستماع، والتحدث.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11196/11352" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-calculator book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات</h3><p class="book-description">دراسة الجبر والهندسة وحساب المثلثات، ويهدف إلى بناء التفكير المنطقي وحل المشكلات الرياضية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11196/11348" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-flask book-icon"></i></div><div class="book-content"><h3 class="book-title">العلوم المتكاملة</h3><p class="book-description">منهج يدمج المفاهيم الأساسية من الفيزياء والكيمياء وعلوم الأرض، لتقديم رؤية شاملة عن العالم الطبيعي.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11218/11377" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-landmark book-icon"></i></div><div class="book-content"><h3 class="book-title">التاريخ</h3><p class="book-description">يستعرض تاريخ الحضارات القديمة والعصور الوسطى، مع التركيز على الأحداث التي شكلت العالم.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11218/11375" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
+            <div class="book-card" id="book-1st-arabic"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-font book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة العربية</h3><p class="book-description">مجموعة من النصوص والأدوات اللغوية التي تهدف إلى تعميق فهم الطالب للغة والأدب والبلاغة والنحو.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11196/11344" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-1st-arabic" data-book-title="كتاب اللغة العربية - أولى ثانوي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-1st-english"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-language book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة الإنجليزية</h3><p class="book-description">منهج لتطوير المهارات اللغوية الأربع: القراءة، الكتابة، الاستماع، والتحدث.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11196/11352" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-1st-english" data-book-title="كتاب اللغة الإنجليزية - أولى ثانوي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-1st-math"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-calculator book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات</h3><p class="book-description">دراسة الجبر والهندسة وحساب المثلثات، ويهدف إلى بناء التفكير المنطقي وحل المشكلات الرياضية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11196/11348" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-1st-math" data-book-title="كتاب الرياضيات - أولى ثانوي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-1st-science"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-flask book-icon"></i></div><div class="book-content"><h3 class="book-title">العلوم المتكاملة</h3><p class="book-description">منهج يدمج المفاهيم الأساسية من الفيزياء والكيمياء وعلوم الأرض، لتقديم رؤية شاملة عن العالم الطبيعي.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11218/11377" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-1st-science" data-book-title="كتاب العلوم المتكاملة - أولى ثانوي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-1st-history"><div class="book-sticker">أساسي</div><div class="book-cover"><i class="fas fa-landmark book-icon"></i></div><div class="book-content"><h3 class="book-title">التاريخ</h3><p class="book-description">يستعرض تاريخ الحضارات القديمة والعصور الوسطى، مع التركيز على الأحداث التي شكلت العالم.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11218/11375" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-1st-history" data-book-title="كتاب التاريخ - أولى ثانوي"><i class="fas fa-share-alt"></i></button></div></div></div>
         </div></div></div>
         <footer class="site-footer"><div class="footer-wave"></div><div class="footer-content container"><div class="footer-column about"><div class="logo">S,A</div><p class="tagline">مؤسسة عالمية رائدة في تمكين التعليم الرقمي، ملتزمون بتوفير المعرفة للجميع، في كل مكان.</p></div><div class="footer-column"><h3>روابط هامة</h3><ul class="footer-links"><li><a href="#">الرئيسية</a></li><li><a href="#">عن المؤسسة</a></li><li><a href="#">مكتبات أخرى</a></li></ul></div><div class="footer-column"><h3>تواصل معنا</h3><ul class="footer-links"><li><a href="#">البريد الإلكتروني</a></li><li><a href="#">تويتر</a></li><li><a href="#">الدعم الفني</a></li></ul></div></div><div class="footer-bottom-bar"><p>جميع الحقوق محفوظة لمؤسسة S,A العالمية © 2025</p></div></footer>
       </section>
 
       <section id="page-2nd-sci" class="page">
         <div class="main-content"><div class="container"><header><h1><i class="fas fa-atom"></i> كتب ثانية ثانوي - علمي</h1><p class="subtitle">أدواتك الدقيقة لاستكشاف قوانين الكون وفهم العالم من حولك.</p></header><div class="books-grid">
-            <div class="book-card"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-font book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة العربية</h3><p class="book-description">دراسة متقدمة في الأدب، النصوص، البلاغة، والنحو، لتعزيز المهارات اللغوية والتحليلية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11386" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-language book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة الإنجليزية</h3><p class="book-description">توسيع قاعدة المفردات والقواعد مع التركيز على مهارات الفهم والتعبير المتقدمة.</p><div class="book-actions"><a href="javascript:void(0)" class="btn-download disabled">غير متوفر حاليًا</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-landmark book-icon"></i></div><div class="book-content"><h3 class="book-title">التاريخ</h3><p class="book-description">دراسة الأحداث التاريخية الكبرى وتأثيرها على العالم المعاصر من منظور علمي.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11516" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-infinity book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات البحتة</h3><p class="book-description">تركز على المفاهيم الرياضية المجردة في الجبر والتفاضل والتكامل.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11471" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-cogs book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات التطبيقية</h3><p class="book-description">تهتم بتطبيق المعرفة الرياضية في حل مسائل واقعية في الاستاتيكا والهندسة.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11471" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-bolt book-icon"></i></div><div class="book-content"><h3 class="book-title">الفيزياء</h3><p class="book-description">تتعمق في دراسة الحركة، الموجات، الضوء، وخواص المادة، وتهدف إلى تفسير الظواهر الطبيعية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11533" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-vial book-icon"></i></div><div class="book-content"><h3 class="book-title">الكيمياء</h3><p class="book-description">تركز على بنية الذرة، الروابط الكيميائية، والجدول الدوري، وتفسر كيفية تفاعل المواد.</p><div class="book-actions"><a href="javascript:void(0)" class="btn-download disabled">غير متوفر حاليًا</a></div></div></div>
+            <div class="book-card" id="book-2sci-arabic"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-font book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة العربية</h3><p class="book-description">دراسة متقدمة في الأدب، النصوص، البلاغة، والنحو، لتعزيز المهارات اللغوية والتحليلية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11386" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2sci-arabic" data-book-title="كتاب اللغة العربية - ثانية علمي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2sci-english"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-language book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة الإنجليزية</h3><p class="book-description">توسيع قاعدة المفردات والقواعد مع التركيز على مهارات الفهم والتعبير المتقدمة.</p><div class="book-actions"><a href="javascript:void(0)" class="btn btn-download disabled">غير متوفر حاليًا</a><button class="btn btn-share" data-book-id="book-2sci-english" data-book-title="كتاب اللغة الإنجليزية - ثانية علمي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2sci-history"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-landmark book-icon"></i></div><div class="book-content"><h3 class="book-title">التاريخ</h3><p class="book-description">دراسة الأحداث التاريخية الكبرى وتأثيرها على العالم المعاصر من منظور علمي.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11516" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2sci-history" data-book-title="كتاب التاريخ - ثانية علمي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2sci-puremath"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-infinity book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات البحتة</h3><p class="book-description">تركز على المفاهيم الرياضية المجردة في الجبر والتفاضل والتكامل.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11471" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2sci-puremath" data-book-title="كتاب الرياضيات البحتة - ثانية علمي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2sci-appmath"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-cogs book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات التطبيقية</h3><p class="book-description">تهتم بتطبيق المعرفة الرياضية في حل مسائل واقعية في الاستاتيكا والهندسة.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11471" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2sci-appmath" data-book-title="كتاب الرياضيات التطبيقية - ثانية علمي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2sci-physics"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-bolt book-icon"></i></div><div class="book-content"><h3 class="book-title">الفيزياء</h3><p class="book-description">تتعمق في دراسة الحركة، الموجات، الضوء، وخواص المادة، وتهدف إلى تفسير الظواهر الطبيعية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11533" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2sci-physics" data-book-title="كتاب الفيزياء - ثانية علمي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2sci-chemistry"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-vial book-icon"></i></div><div class="book-content"><h3 class="book-title">الكيمياء</h3><p class="book-description">تركز على بنية الذرة، الروابط الكيميائية، والجدول الدوري، وتفسر كيفية تفاعل المواد.</p><div class="book-actions"><a href="javascript:void(0)" class="btn btn-download disabled">غير متوفر حاليًا</a><button class="btn btn-share" data-book-id="book-2sci-chemistry" data-book-title="كتاب الكيمياء - ثانية علمي"><i class="fas fa-share-alt"></i></button></div></div></div>
         </div></div></div>
         <footer class="site-footer"><div class="footer-wave"></div><div class="footer-content container"><div class="footer-column about"><div class="logo">S,A</div><p class="tagline">مؤسسة عالمية رائدة في تمكين التعليم الرقمي، ملتزمون بتوفير المعرفة للجميع، في كل مكان.</p></div><div class="footer-column"><h3>روابط هامة</h3><ul class="footer-links"><li><a href="#">الرئيسية</a></li><li><a href="#">عن المؤسسة</a></li><li><a href="#">مكتبات أخرى</a></li></ul></div><div class="footer-column"><h3>تواصل معنا</h3><ul class="footer-links"><li><a href="#">البريد الإلكتروني</a></li><li><a href="#">تويتر</a></li><li><a href="#">الدعم الفني</a></li></ul></div></div><div class="footer-bottom-bar"><p>جميع الحقوق محفوظة لمؤسسة S,A العالمية © 2025</p></div></footer>
       </section>
 
       <section id="page-2nd-lit" class="page">
         <div class="main-content"><div class="container"><header><h1><i class="fas fa-feather-alt"></i> كتب ثانية ثانوي - أدبي</h1><p class="subtitle">نافذتك على أعماق الفكر، التاريخ، والثقافة الإنسانية.</p></header><div class="books-grid">
-            <div class="book-card"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-font book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة العربية</h3><p class="book-description">دراسة متقدمة في الأدب، النصوص، البلاغة، والنحو، لتعزيز المهارات اللغوية والتحليلية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11383" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-language book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة الإنجليزية</h3><p class="book-description">توسيع قاعدة المفردات والقواعد مع التركيز على مهارات الفهم والتعبير المتقدمة.</p><div class="book-actions"><a href="javascript:void(0)" class="btn-download disabled">غير متوفر حاليًا</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-calculator book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات</h3><p class="book-description">مفاهيم أساسية في الجبر والتفاضل وحساب المثلثات مصممة لتناسب المتطلبات الأدبية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11469" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-landmark book-icon"></i></div><div class="book-content"><h3 class="book-title">التاريخ</h3><p class="book-description">دراسة الماضي كما هو مدون في الوثائق. يعتمد على السرد لفحص وتسجيل وتحليل الأحداث الماضية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11516" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-globe-asia book-icon"></i></div><div class="book-content"><h3 class="book-title">الجغرافيا</h3><p class="book-description">علم وصف الأرض الذي يدرس تضاريسها، ملامحها، سكانها، وظواهرها، ويربط بين الإنسان والبيئة.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11449" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-brain book-icon"></i></div><div class="book-content"><h3 class="book-title">الفلسفة والمنطق</h3><p class="book-description">دراسة المشاكل الأساسية المتعلقة بالوجود، المعرفة، القيم، العقل، واللغة.</p><div class="book-actions"><a href="javascript:void(0)" class="btn-download disabled">غير متوفر حاليًا</a></div></div></div>
-            <div class="book-card"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-users book-icon"></i></div><div class="book-content"><h3 class="book-title">علم النفس والاجتماع</h3><p class="book-description">الدراسة العلمية للسلوك والعقل، ويهدف إلى فهم وتفسير سلوكيات الأفراد والجماعات في المجتمع.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11389" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الكتاب</a></div></div></div>
+            <div class="book-card" id="book-2lit-arabic"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-font book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة العربية</h3><p class="book-description">دراسة متقدمة في الأدب، النصوص، البلاغة، والنحو، لتعزيز المهارات اللغوية والتحليلية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11383" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2lit-arabic" data-book-title="كتاب اللغة العربية - ثانية أدبي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2lit-english"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-language book-icon"></i></div><div class="book-content"><h3 class="book-title">اللغة الإنجليزية</h3><p class="book-description">توسيع قاعدة المفردات والقواعد مع التركيز على مهارات الفهم والتعبير المتقدمة.</p><div class="book-actions"><a href="javascript:void(0)" class="btn btn-download disabled">غير متوفر حاليًا</a><button class="btn btn-share" data-book-id="book-2lit-english" data-book-title="كتاب اللغة الإنجليزية - ثانية أدبي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2lit-math"><div class="book-sticker sticker-base">أساسي</div><div class="book-cover"><i class="fas fa-calculator book-icon"></i></div><div class="book-content"><h3 class="book-title">الرياضيات</h3><p class="book-description">مفاهيم أساسية في الجبر والتفاضل وحساب المثلثات مصممة لتناسب المتطلبات الأدبية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11469" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2lit-math" data-book-title="كتاب الرياضيات - ثانية أدبي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2lit-history"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-landmark book-icon"></i></div><div class="book-content"><h3 class="book-title">التاريخ</h3><p class="book-description">دراسة الماضي كما هو مدون في الوثائق. يعتمد على السرد لفحص وتسجيل وتحليل الأحداث الماضية.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11220/11516" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2lit-history" data-book-title="كتاب التاريخ - ثانية أدبي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2lit-geo"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-globe-asia book-icon"></i></div><div class="book-content"><h3 class="book-title">الجغرافيا</h3><p class="book-description">علم وصف الأرض الذي يدرس تضاريسها، ملامحها، سكانها، وظواهرها، ويربط بين الإنسان والبيئة.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11449" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2lit-geo" data-book-title="كتاب الجغرافيا - ثانية أدبي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2lit-philo"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-brain book-icon"></i></div><div class="book-content"><h3 class="book-title">الفلسفة والمنطق</h3><p class="book-description">دراسة المشاكل الأساسية المتعلقة بالوجود، المعرفة، القيم، العقل، واللغة.</p><div class="book-actions"><a href="javascript:void(0)" class="btn btn-download disabled">غير متوفر حاليًا</a><button class="btn btn-share" data-book-id="book-2lit-philo" data-book-title="كتاب الفلسفة والمنطق - ثانية أدبي"><i class="fas fa-share-alt"></i></button></div></div></div>
+            <div class="book-card" id="book-2lit-psycho"><div class="book-sticker sticker-spec">تخصص</div><div class="book-cover"><i class="fas fa-users book-icon"></i></div><div class="book-content"><h3 class="book-title">علم النفس والاجتماع</h3><p class="book-description">الدراسة العلمية للسلوك والعقل، ويهدف إلى فهم وتفسير سلوكيات الأفراد والجماعات في المجتمع.</p><div class="book-actions"><a href="https://t.me/zakrolynew/11222/11389" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> تحميل</a><button class="btn btn-share" data-book-id="book-2lit-psycho" data-book-title="كتاب علم النفس والاجتماع - ثانية أدبي"><i class="fas fa-share-alt"></i></button></div></div></div>
         </div></div></div>
         <footer class="site-footer"><div class="footer-wave"></div><div class="footer-content container"><div class="footer-column about"><div class="logo">S,A</div><p class="tagline">مؤسسة عالمية رائدة في تمكين التعليم الرقمي، ملتزمون بتوفير المعرفة للجميع، في كل مكان.</p></div><div class="footer-column"><h3>روابط هامة</h3><ul class="footer-links"><li><a href="#">الرئيسية</a></li><li><a href="#">عن المؤسسة</a></li><li><a href="#">مكتبات أخرى</a></li></ul></div><div class="footer-column"><h3>تواصل معنا</h3><ul class="footer-links"><li><a href="#">البريد الإلكتروني</a></li><li><a href="#">تويتر</a></li><li><a href="#">الدعم الفني</a></li></ul></div></div><div class="footer-bottom-bar"><p>جميع الحقوق محفوظة لمؤسسة S,A العالمية © 2025</p></div></footer>
       </section>
     </main>
   </div>
 
+  <div id="saifai-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title">بوابة Saifai</h3><button class="modal-close-btn">&times;</button></div>
+      <iframe id="saifai-frame" src=""></iframe>
+    </div>
+  </div>
+
+  <div id="share-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header"><h3 id="share-modal-title" class="modal-title">مشاركة</h3><button id="share-modal-close" class="modal-close-btn">&times;</button></div>
+      <div class="modal-body">
+        <div class="qr-code-container"><img id="qr-code-img" src="" alt="QR Code"></div>
+        <div class="link-container"><button id="copy-link-btn"><i class="fas fa-copy"></i></button><input id="share-link-input" type="text" readonly></div>
+        <div class="social-share">
+          <a id="share-whatsapp" href="#" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+          <a id="share-telegram" href="#" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
+          <a id="share-facebook" href="#" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+          <a id="share-twitter" href="#" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="global-share-btn"><i class="fas fa-share-alt"></i></div>
+
   <nav class="bottom-nav">
     <a class="nav-item" data-page="page-1st-year" data-color="#17a2b8"><i class="fas fa-seedling icon"></i></a>
     <a class="nav-item" data-page="page-2nd-sci" data-color="#007bff"><i class="fas fa-atom icon"></i></a>
     <a class="nav-item" data-page="page-2nd-lit" data-color="#A52A2A"><i class="fas fa-feather-alt icon"></i></a>
-    <a class="nav-item" href="https://saif1230876657.github.io/xzx/" target="_blank" data-color="#9400D3"><i class="fas fa-microchip icon"></i></a>
+    <a class="nav-item" data-page="page-saifai" data-color="#9400D3"><i class="fas fa-microchip icon"></i></a>
   </nav>
 
   <script>
@@ -128,27 +176,44 @@
       const body = document.body;
       const preloader = document.getElementById('preloader');
       const navItems = document.querySelectorAll('.nav-item');
+      const shareModal = document.getElementById('share-modal');
+      const shareModalTitle = document.getElementById('share-modal-title');
+      const shareModalClose = document.getElementById('share-modal-close');
+      const qrCodeImg = document.getElementById('qr-code-img');
+      const shareLinkInput = document.getElementById('share-link-input');
+      const copyLinkBtn = document.getElementById('copy-link-btn');
+      const shareWhatsapp = document.getElementById('share-whatsapp');
+      const shareTelegram = document.getElementById('share-telegram');
+      const shareFacebook = document.getElementById('share-facebook');
+      const shareTwitter = document.getElementById('share-twitter');
+      const globalShareBtn = document.getElementById('global-share-btn');
+      const saifaiModal = document.getElementById('saifai-modal');
+      const saifaiFrame = document.getElementById('saifai-frame');
+      const closeModalBtn = document.querySelector('.modal-close-btn');
+      let lastPageId = 'page-1st-year';
+      const baseURL = window.location.href.split('#')[0];
 
-      function showPage(pageId, activeLink, isInitialLoad = false) {
+      function showPage(pageId, activeLink, isInitialLoad = false, scrollTargetId = null) {
         if (!isInitialLoad) {
           preloader.style.opacity = '1';
           preloader.style.visibility = 'visible';
         }
-
         setTimeout(() => {
           document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-          document.getElementById(pageId).classList.add('active');
-
-          navItems.forEach(item => item.classList.remove('active'));
-          activeLink.classList.add('active');
-          
-          const themeClass = pageId.replace('page-', 'theme-');
-          body.className = `loaded ${themeClass}`;
-          
-          const activeColor = activeLink.dataset.color;
-          document.documentElement.style.setProperty('--active-color', activeColor);
+          const pageToShow = document.getElementById(pageId);
+          pageToShow.classList.add('active');
+          updateNavState(pageId);
           window.scrollTo(0, 0);
-
+          if(scrollTargetId) {
+              setTimeout(() => {
+                  const targetElement = document.getElementById(scrollTargetId);
+                  if(targetElement) {
+                      targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      targetElement.classList.add('highlight');
+                      setTimeout(() => targetElement.classList.remove('highlight'), 2500);
+                  }
+              }, 100);
+          }
           if (!isInitialLoad) {
             setTimeout(() => {
               preloader.style.opacity = '0';
@@ -158,16 +223,83 @@
         }, isInitialLoad ? 0 : 400); 
       }
       
+      function openShareModal(url, title) {
+          shareModalTitle.textContent = `مشاركة: ${title}`;
+          shareLinkInput.value = url;
+          qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(url)}`;
+          const encodedUrl = encodeURIComponent(url);
+          const encodedTitle = encodeURIComponent(title);
+          shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodedTitle}%0A${encodedUrl}`;
+          shareTelegram.href = `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`;
+          shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+          shareTwitter.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+          shareModal.classList.add('visible');
+      }
+
+      function closeShareModal() { shareModal.classList.remove('visible'); }
+      
+      function openModal() {
+        if(saifaiFrame.src === "") { saifaiFrame.src = "https://saif1230876657.github.io/xzx/"; }
+        saifaiModal.classList.add('visible');
+        updateNavState('page-saifai');
+      }
+
+      function closeModal() {
+        saifaiModal.classList.remove('visible');
+        updateNavState(lastPageId); 
+      }
+      
+      function updateNavState(pageId) {
+          const activeLink = document.querySelector(`.nav-item[data-page="${pageId}"]`);
+          if (activeLink) {
+              navItems.forEach(item => item.classList.remove('active'));
+              activeLink.classList.add('active');
+              const themeClass = pageId.replace('page-', 'theme-');
+              body.className = `loaded ${themeClass}`;
+              const activeColor = activeLink.dataset.color;
+              document.documentElement.style.setProperty('--active-color', activeColor);
+          }
+      }
+
       navItems.forEach(link => {
-          if (link.target === '_blank') return; 
-          link.addEventListener('click', (e) => { 
-              e.preventDefault(); 
-              const pageId = link.dataset.page;
-              if(!link.classList.contains('active')) {
-                  showPage(pageId, link);
-              }
+        link.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            const pageId = link.dataset.page;
+            if(!link.classList.contains('active')) {
+                if(pageId === 'page-saifai') {
+                    openModal();
+                } else {
+                    lastPageId = pageId;
+                    showPage(pageId, link);
+                }
+            }
+        });
+      });
+
+      document.querySelectorAll('.btn-share').forEach(button => {
+          button.addEventListener('click', () => {
+              const bookId = button.dataset.bookId;
+              const bookTitle = button.dataset.bookTitle;
+              const shareUrl = `${baseURL}#${bookId}`;
+              openShareModal(shareUrl, bookTitle);
           });
       });
+      
+      globalShareBtn.addEventListener('click', () => {
+          openShareModal(baseURL, "منصة S,A التعليمية");
+      });
+
+      shareModalClose.addEventListener('click', closeShareModal);
+      shareModal.addEventListener('click', (e) => { if (e.target === shareModal) { closeShareModal(); } });
+      copyLinkBtn.addEventListener('click', () => {
+          shareLinkInput.select();
+          navigator.clipboard.writeText(shareLinkInput.value);
+          copyLinkBtn.innerHTML = '<i class="fas fa-check"></i>';
+          setTimeout(() => { copyLinkBtn.innerHTML = '<i class="fas fa-copy"></i>'; }, 1500);
+      });
+      
+      closeModalBtn.addEventListener('click', closeModal);
+      saifaiModal.addEventListener('click', (e) => { if (e.target === saifaiModal) { closeModal(); } });
       
       preloader.style.opacity = '1';
       preloader.style.visibility = 'visible';
@@ -175,6 +307,17 @@
         body.classList.add('loaded');
         preloader.style.opacity = '0';
         preloader.style.visibility = 'hidden';
+        const hash = window.location.hash;
+        if (hash) {
+            const targetId = hash.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if(targetElement) {
+                const parentPage = targetElement.closest('.page');
+                const navLink = document.querySelector(`.nav-item[data-page="${parentPage.id}"]`);
+                showPage(parentPage.id, navLink, true, targetId);
+                return;
+            }
+        }
         showPage('page-1st-year', document.querySelector('.nav-item[data-page="page-1st-year"]'), true);
       }, 1000);
     };
